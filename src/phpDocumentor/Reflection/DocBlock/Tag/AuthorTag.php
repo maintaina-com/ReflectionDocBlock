@@ -44,7 +44,7 @@ class AuthorTag extends Tag
         if (null === $this->content) {
             $this->content = $this->authorName;
             if ('' != $this->authorEmail) {
-                $this->content .= "<{$this->authorEmail}>";
+                $this->content .= " <{$this->authorEmail}>";
             }
         }
 

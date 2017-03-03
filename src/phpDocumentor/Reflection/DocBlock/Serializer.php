@@ -181,8 +181,12 @@ class Serializer
         $comment = "{$firstIndent}/**\n{$indent} * {$text}\n{$indent} *\n";
 
         /** @var Tag $tag */
+        $length = 0;
         foreach ($docblock->getTags() as $tag) {
-            $tagText = (string) $tag;
+            $length = max($length, $tag->getName());
+        }
+        foreach ($docblock->getTags() as $tag) {
+            $tagText = $tag->toString($length - strlen($tag->getName()) + 1);
             if ($this->lineLength) {
                 $tagText = wordwrap($tagText, $wrapLength);
             }

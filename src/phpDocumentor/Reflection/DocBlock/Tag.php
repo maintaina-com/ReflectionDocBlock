@@ -372,6 +372,16 @@ class Tag implements \Reflector
      */
     public function __toString()
     {
-        return "@{$this->getName()} {$this->getContent()}";
+        return $this->toString();
+    }
+
+    /**
+     * Returns the tag as a serialized string
+     *
+     * @return string
+     */
+    public function toString($spaces = 1)
+    {
+        return "@{$this->getName()}" . str_repeat(' ', $spaces) . "{$this->getContent()}";
     }
 }
