@@ -177,6 +177,7 @@ class Serializer
             $text = wordwrap($text, $wrapLength);
         }
         $text = str_replace("\n", "\n{$indent} * ", $text);
+        $text = preg_replace('/ +$/m', '', $text);
 
         $comment = "{$firstIndent}/**\n{$indent} * {$text}\n{$indent} *\n";
 
