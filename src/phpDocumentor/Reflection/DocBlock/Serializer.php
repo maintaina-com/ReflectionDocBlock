@@ -183,7 +183,7 @@ class Serializer
         /** @var Tag $tag */
         $length = 0;
         foreach ($docblock->getTags() as $tag) {
-            $length = max($length, $tag->getName());
+            $length = max($length, strlen($tag->getName()));
         }
         foreach ($docblock->getTags() as $tag) {
             $tagText = $tag->toString($length - strlen($tag->getName()) + 1);
